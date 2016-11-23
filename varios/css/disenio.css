@@ -1,0 +1,173 @@
+body{
+  color: white;
+  background-color: black;
+}
+
+footer{
+  box-sizing: border-box;
+  width: 100%;
+  background: #1b1b1b;
+  border: solid;
+  border-color: #080808;
+  border-radius: 4px;
+}
+
+#predeterminado{
+  display: none;
+
+}
+.descripcion{
+  margin: 0px;
+  font-size: 20px;
+  font-family: monospace;
+
+}
+
+.descripcion ul{
+  margin-left: 30px;
+  margin-top: 30px;
+}
+
+#banner{
+
+    width: 100%;
+  }
+
+.cuerpo{
+  margin-bottom: 30px;
+}
+
+.propagandas img{
+  width: 100%;
+}
+
+footer img{
+  margin: 5%;
+}
+
+#logo{  -webkit-animation-name: logo;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-duration:5s;
+  -webkit-transform-style: preserve-3d;
+}
+
+
+@-webkit-keyframes logo{
+from { -webkit-transform: rotateY(0deg);    }
+to   { -webkit-transform: rotateY(-360deg); }
+}
+
+footer label{
+  margin: 5%;
+  display: block;
+}
+
+.sociales{
+  text-align: center;
+  margin-top: 15%;
+
+}
+.sociales li{
+  text-decoration: none;
+  display: inline;
+
+}
+.sociales img{
+    height: 50px;
+    width: 50px;
+    margin: 20px 0;
+    -webkit-transition: all 1s ease;
+
+}
+
+.sociales img:hover {
+    height: 75px;
+    width: 75px;
+    margin-left: -50px;
+}
+
+#contenido{
+  margin: 10px;
+}
+
+.galeria{
+  width: 100%;
+  height:100%;
+  justify-content: center;
+  text-align: center;
+}
+.galeria img{
+   height: 50%;;
+   width: 100%;
+   max-width: 100%;
+   max-height: 50%;
+   border: 7px solid white;
+   box-sizing: border-box;
+}
+
+.selecturno{
+    font-size: 20px;
+    border: solid white;
+    border-collapse:collapse;
+    color: white;
+    width: 100%;
+}
+
+.selecturno th,td,tr{
+  border: solid white;
+  border-collapse:collapse;
+  color: white;
+  text-align: center;
+}
+.selecturno img {
+       width: 100px;
+       height: 100px;
+}
+
+.btnbor{
+    color: black;
+    width: 100%;
+    border: solid #003366;
+
+}
+
+.btnguardar button {
+  border: solid #003366;
+}
+
+.admin{
+   font-size: 20px;
+
+}
+
+#oculto{
+  color: black;
+  display:none;
+  }
+
+#oculto label{
+    color: white;
+    font-family: sans-serif;
+}
+
+#adm{
+font-size: 15px;
+font-family: sans-serif;
+}
+
+
+#oculto a{
+font-size: 15px;
+font-family: sans-serif;
+}
+
+
+
+.horaturno label, input,table{
+  margin: 5px 0 30px 0;
+}
+
+.horaturno {
+  font-size: 20px;
+}
