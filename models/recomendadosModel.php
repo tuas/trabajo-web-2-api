@@ -1,14 +1,13 @@
 <?php
+include_once ("models/models.php");
 ///////////////////////////////////////////////////////////////////////////////
 ////////////////*MANEJO DE TABLA RECOMENDADO Y IMAGENES RECOMENDADO*////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
-class recomendadosmodelo{
-  private $home;
-  private $db;
+class recomendadosmodelo extends Model{
+
 
   function __construct(){
-    $this->home = [''];
-    $this->db = new PDO('mysql:host=localhost;dbname=tallerchapista;charset=utf8', 'root', 'root');
+    parent::__construct();
 
   }
 

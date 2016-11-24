@@ -30,10 +30,12 @@
 
       <ul class="nav navbar-nav">
         <li><a id="gal" href="#" ><span class="glyphicon glyphicon-picture" aria-hidden="true"> Galeria</span> </a></li>
+        <li><a id="comentarios" href="#" ><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"> Nuestro servicios</span></a></li>
         <li><a id="serv" href="#" ><span class="glyphicon glyphicon-list" aria-hidden="true"> Servicios recomendados</span></a></li>
-        <li><a id="turn" href="#" ><span class="glyphicon glyphicon-calendar" aria-hidden="true"> Turnos</span></a></li>
-        <li id='adm'>{include file='login.tpl'}</li>
+        <li><a id="turn" href="#" ><span class="glyphicon glyphicon-calendar" aria-hidden="true"> Solicitar turnos</span></a></li>
+        <li><a id="ocupado" href="#" ><span class="glyphicon glyphicon-book" aria-hidden="true"> Turnos ocupados</span></a></li>
       </ul>
+      <ul class="nav navbar-nav navbar-right" id="adm">{include file='login.tpl'}</ul>
     </div><!-- /.navbar-collapse -->
 
   </div><!-- /.container-fluid -->

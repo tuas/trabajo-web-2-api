@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-11-2016 a las 21:42:02
+-- Tiempo de generación: 23-11-2016 a las 21:57:37
 -- Versión del servidor: 10.1.16-MariaDB
 -- Versión de PHP: 5.6.24
 
@@ -46,8 +46,12 @@ CREATE TABLE `login` (
   `nombre` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `login`
+--
 
-INSERT INTO `login`(`id_login`, `user`, `pass`, `t_user`, `nombre`) VALUES (1,'dueño@web.com','ec10b554dc4f5c290aba276c4c530446','dueño','dueño')
+INSERT INTO `login` (`id_login`, `user`, `pass`, `t_user`, `nombre`) VALUES
+(15, 'dueño', 'ec10b554dc4f5c290aba276c4c530446', 'dueño', 'dueño');
 
 -- --------------------------------------------------------
 
@@ -62,6 +66,19 @@ CREATE TABLE `recomendados` (
   `Ciudad` text NOT NULL,
   `Direccion` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `recomendados`
+--
+
+INSERT INTO `recomendados` (`id_recomendado`, `Servicio`, `Empresa`, `Ciudad`, `Direccion`) VALUES
+(1, 'repuestos', 'viafer', 'tandil', 'alem 1456'),
+(2, 'repuesto', 'pachela', 'balcarce', 'chavez 490'),
+(3, 'electricidad', 'el atomo negativo', 'tandil', 'jujuy 230'),
+(4, 'electricidad', 'juan gonzales electromecanica', 'balcarce', 'calle 20 500'),
+(5, 'neumatico', 'pireli', 'tandil', 'av del valle 600'),
+(6, 'concesionarias', 'gordini automotores ', 'balcarce', 'calle n°5 600'),
+(7, 'concesionarias', 'guillermo simone', 'tandil', 'av espora y ruta 226');
 
 -- --------------------------------------------------------
 
@@ -79,7 +96,9 @@ CREATE TABLE `servicios` (
 --
 
 INSERT INTO `servicios` (`id_servicio`, `servicio`) VALUES
-(6, 'a');
+(7, 'chapa'),
+(8, 'pintura'),
+(9, 'mecanica');
 
 -- --------------------------------------------------------
 
@@ -138,27 +157,27 @@ ALTER TABLE `turnos`
 -- AUTO_INCREMENT de la tabla `imagenes_recomendadas`
 --
 ALTER TABLE `imagenes_recomendadas`
-  MODIFY `id_imagen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_imagen` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `login`
 --
 ALTER TABLE `login`
-  MODIFY `id_login` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_login` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT de la tabla `recomendados`
 --
 ALTER TABLE `recomendados`
-  MODIFY `id_recomendado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id_recomendado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT de la tabla `servicios`
 --
 ALTER TABLE `servicios`
-  MODIFY `id_servicio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_servicio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT de la tabla `turnos`
 --
 ALTER TABLE `turnos`
-  MODIFY `id_turno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_turno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

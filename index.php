@@ -3,14 +3,17 @@ include_once('controllers/error_controllers.php');
 include_once('controllers/home_controllers.php');
 include_once('controllers/turno_controllers.php');
 include_once('controllers/login_controllers.php');
+include_once('controllers/ocupado_controllers.php');
 include_once('controllers/administradorcontrollers.php');
 include_once('libs/Smarty.class.php');
 include_once('config/ConfigApp.php');
+
 $logincontroller = new loginController();
 $turnocontroller = new turnoController();
 $controller = new TallerController();
 $errorcontroller = new errorController();
 $admincontroller = new administradorController();
+$ocupadocontroller = new ocupadoController();
 
 if (!array_key_exists(ConfigApp::$ACTION,$_REQUEST)){
   $controller->home('home');
@@ -38,6 +41,15 @@ switch ($_REQUEST[ConfigApp::$ACTION]) {
       break;
     case ConfigApp::$SERVICIOS:
       $controller->servicio('servicios');
+      break;
+    case ConfigApp::$OCUPADO:
+      $ocupadocontroller->nuestroservicio();
+      break;
+    case ConfigApp::$CAMBIAR_ORDEN:
+      $ocupadocontroller->nuevoorden();
+      break;
+    case ConfigApp::$COMENTARIOS:
+      $controller->cargarservicioscomentados();
       break;
     case ConfigApp::$TURNO:
       $controller->turno('turno');
@@ -113,7 +125,7 @@ switch ($_REQUEST[ConfigApp::$ACTION]) {
       $admincontroller->eliminar_u();
       break;
     default:
-      $errorcontroller->fallo();
+      $controller->home('home');
       break;
 }
 

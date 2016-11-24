@@ -283,7 +283,7 @@ function mostrar_form_edit_u($action){
 }
 function edicion_tabla_usuario(){
   $usuarios = $this->verificarusuario($_POST);
-  if ($usuarios!=0) {
+  if (($usuarios!=0)&&($usuarios['t_user']!='dueño')) {
         $this->admini->editusuariodb($usuarios);
                    }
   else{
@@ -294,8 +294,7 @@ function edicion_tabla_usuario(){
 
 function agregaenusuario(){
     $usuarios = $this->verificarusuario($_POST);
-    print_r($usuarios);
-      if ($usuarios!=0){
+      if (($usuarios!=0)&&($usuarios['t_user']!='dueño')){
             $this->admini->meterusuario($usuarios);
 
       }
@@ -304,7 +303,6 @@ function agregaenusuario(){
 
 
   function eliminar_u(){
-    print_r($_POST['id_login']);
     if ($_POST['id_login']) {
       $idusuario = $_POST['id_login'];
       $usuarios = $this->admini->deleusuario($idusuario);

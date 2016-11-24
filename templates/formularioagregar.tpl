@@ -8,7 +8,7 @@
     <div class="form-group">
         <label class="control-label col-xs-3">hora:</label>
         <div class="col-xs-9">
-            <input type="int" class="form-control" name="hora" placeholder="13"></input>
+            <input type="int" class="form-control" name="hora" placeholder="13" min="8" max="21"></input>
         </div>
     </div>
     <div class="form-group">

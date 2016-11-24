@@ -20,6 +20,12 @@ class tallerView
     $this->smarty->assign('imagen',$imagen);
     $this->smarty->display('servicios.tpl');
   }
+  function mostrarservicios($servicios,$usuario,$permiso){
+    $this->smarty->assign('servicios',$servicios);
+    $this->smarty->assign('usuario',$usuario);
+    $this->smarty->assign('permiso',$permiso);
+    $this->smarty->display('templates/servicioscomentados.tpl');
+  }
 }
 
  ?>

@@ -7,6 +7,9 @@ class ConfigApp{
   public static $REGISTRAR = 'registrar';
   public static $ACTION = 'action';
   public static $GALERIA = 'galeria';
+  public static $OCUPADO = 'ocupado';
+  public static $COMENTARIOS = 'comentarios';
+  public static $CAMBIAR_ORDEN = 'cambiar_orden';
   public static $SERVICIOS = 'servicios';
   public static $TURNO = 'turno';
   public static $INICIO= 'inicio';

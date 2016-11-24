@@ -23,7 +23,10 @@
     <div class="form-group">
         <label class="control-label col-xs-3">Tipo de usuaro:</label>
         <div class="col-xs-9">
-            <input type="text" class="form-control" name="t_user" placeholder="cliente"></input>
+          <select class="form-control" name="t_user">
+            <option value="cliente">cliente</option>
+            <option value="administrador">administrador</option>
+          </select>
         </div>
     </div>
         <div class="form-group">

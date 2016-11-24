@@ -1,17 +1,16 @@
 <?php
-
+include_once ("models/models.php");
 ///////////////////////////////////////////////////////////////////////////////
 ////////////////*MANEJO DE TABLA TURNO*////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
-class tallermodelo{
+class tallermodelo extends Model{
   private $turno;
-  private $db;
   private $servicios;
 
 function __construct(){
     $this->turno =[''];
-    $this->db = new PDO('mysql:host=localhost;dbname=tallerchapista;charset=utf8','root','root');
+    parent::__construct();
     $this->servicios =[''];
   }
 

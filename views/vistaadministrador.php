@@ -15,7 +15,6 @@ class  administradorView{
      $this->smarty->assign('recomendado',$recomendado);
      $this->smarty->assign('usuarios',$usuarios);
      $this->smarty->assign('imagen',$imagen);
-     print_r($imagen);
      $this->smarty->display("templates/funcionadministrador.tpl");
   }
 

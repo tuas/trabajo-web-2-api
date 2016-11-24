@@ -1,16 +1,16 @@
 <?php
-
+include_once ("models/models.php");
 ///////////////////////////////////////////////////////////////////////////////
 ////////////////*MANEJO DE BASE DE DATOS DE FUNCIONES DE ADMINISTRADOR*////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
 
-class administradormodelo{
-  private $db;
+class administradormodelo extends Model{
+
   private $ad;
   function __construct(){
     $this->ad= [''];
-    $this->db = new PDO('mysql:host=localhost;dbname=tallerchapista;charset=utf8', 'root', 'root');
+    parent::__construct();
   }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -23,22 +23,24 @@ function getusuarios(){
   return $posible->fetchAll(PDO::FETCH_ASSOC);
 }
 function deleusuario($idusuario){
-  $sentencia = $this->db->prepare("DELETE FROM login WHERE id_login=?");
-  $sentencia->execute(array($idusuario));
+  $prohivido = 'dueño';
+  $sentencia = $this->db->prepare("DELETE FROM login WHERE id_login=? AND t_user!=?");
+  $sentencia->execute(array($idusuario,$prohivido));
 }
 function editusuariodb($usuario){
+  $prohivido = 'dueño';
   $id = $usuario['id_usuario'];
   $nombre = $usuario['nombre'];
   $email= $usuario['email'];
-  $pass = $usuario['password'];
+  $pass = md5($usuario['password']);
   $tipousuario = $usuario['t_user'];
-  $sentencia = $this->db->prepare("UPDATE login SET user=?, pass=?, t_user=?, nombre=? WHERE id_login=?");
-  $sentencia->execute(array($email,$pass,$tipousuario,$nombre,$id));
+  $sentencia = $this->db->prepare("UPDATE login SET user=?, pass=?, t_user=?, nombre=? WHERE id_login=?AND t_user!=?");
+  $sentencia->execute(array($email,$pass,$tipousuario,$nombre,$id,$prohivido));
 }
  function meterusuario($usuario){
    $nombre = $usuario['nombre'];
    $email= $usuario['email'];
-   $pass = $usuario['password'];
+   $pass = md5($usuario['password']);
    $tipousuario = $usuario['t_user'];
    $sentencia = $this->db->prepare("INSERT INTO login(user,pass,t_user,nombre) VALUES(?,?,?,?)");
    $sentencia->execute(array($email,$pass,$tipousuario,$nombre));

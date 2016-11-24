@@ -15,7 +15,6 @@ var login = function() {
 
 var formulario_registrar = function() {
     event.preventDefault();
-      ocultarform();
       $.ajax({
         url:"index.php?action=form_registrar",
         method:"GET",
@@ -33,9 +32,28 @@ var registrar = function() {
       });
     cargarinicio();
     };
+
+    $(document).ready(function(){
+        $('.dropdown-menu').find('form').click(function (e) {
+            e.stopPropagation();
+        });
+    });
+
+    var cerrarsesion= function(){
+    $.ajax({
+      url:"index.php?action=cerrarsesion",
+      method:"GET",
+      dataType:"html",
+      success: function(textoCargado, status){
+        $("#adm").html(textoCargado);
+      }
+    });
+    cargarinicio();
+  };
 ///////////////////////////////////////////////////////////////////////////////
 ////////////////*CARGA PAGINA*////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
+
 var ocultarform = function() {
   event.preventDefault();
    $('#oculto').toggle();
@@ -64,6 +82,38 @@ var cargargaleriautos = function() {
     }
   });
 };
+
+var cargarocupado = function() {
+  event.preventDefault();
+  $.ajax({
+    url:"index.php?action=ocupado",
+    method:"GET",
+    dataType:"html",
+    success: function(textoCargado, status){
+      $("#contenido").html(textoCargado);
+    }
+  });
+};
+
+var cambiarorden = function() {
+  event.preventDefault();
+  $.post( "index.php?action=cambiar_orden",$("#elegirorden").serialize(), function(data) {
+    $('#contenido').html(data);
+  });
+};
+
+var cargarcomentarios = function() {
+  event.preventDefault();
+  $.ajax({
+    url:"index.php?action=comentarios",
+    method:"GET",
+    dataType:"html",
+    success: function(textoCargado, status){
+      $("#contenido").html(textoCargado);
+    }
+  });
+};
+
 var cargarservicios = function() {
   event.preventDefault();
   $.ajax({
@@ -99,17 +149,7 @@ var cargarturno = function() {
   });
   };
 
-  var cerrarsesion= function(){
-  $.ajax({
-    url:"index.php?action=cerrarsesion",
-    method:"GET",
-    dataType:"html",
-    success: function(textoCargado, status){
-      $("#adm").html(textoCargado);
-    }
-  });
-  cargarinicio();
-};
+
 ///////////////////////////////////////////////////////////////////////////////
 ////////////////*TURNO*////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
@@ -218,7 +258,6 @@ var agregartablaservicio = function(){
 ///////////////////////////////////////////////////////////////////////////////
 $(document).on("click", ".eliminarrecomendadotabla", function(){
   event.preventDefault();
-  console.log( $(this).attr("data-idrecomendados"));
   $.post( "index.php?action=eliminar_tablarecomendado",{ id_recomendado: $(this).attr("data-idrecomendados") }, function(data) {
     $('#contenido').html(data);
   });
@@ -227,7 +266,6 @@ $(document).on("click", ".eliminarrecomendadotabla", function(){
 
 $(document).on("click", ".formularioeditarrecomendadotabla", function(){
   event.preventDefault();
-  console.log( $(this).attr("data-idrecomendados"));
   $.post( "index.php?action=form_tablarecomendado",{ id_recomendado: $(this).attr("data-idrecomendados") }, function(data) {
     $('#modificacionrecomendados').html(data);
   });
@@ -297,7 +335,6 @@ $(document).on("click", ".formularioeditarusuariotabla", function(){
 
 var editartablausuario = function() {
   event.preventDefault();
-  console.log('sia');
   $.post( "index.php?action=editar_tablausuario",$("#editusuario").serialize(), function(data) {
     $('#contenido').html(data);
 });
@@ -333,6 +370,15 @@ $(document).on("click", "#ini", function(){
 $(document).on("click", "#gal", function(){
   cargargaleriautos();
 });
+$(document).on("click", "#ocupado", function(){
+  cargarocupado();
+});
+$(document).on("click", "#btn-orden", function(){
+  cambiarorden();
+});
+$(document).on("click", "#comentarios", function(){
+  cargarcomentarios();
+})
 $(document).on("click", "#serv", function(){
   cargarservicios();
 });
@@ -343,17 +389,15 @@ $(document).on("click", "#btn_enviardia", function(){
   ingresofecha();
 });
 
-$(document).on("click", "#administrador", function(){
-  console.log("llegue");
-  ocultarform();
-});
 $(document).on("click", "#registrar", function(){
   formulario_registrar();
 });
 $(document).on("click", "#btn_registrar", function(){
   registrar();
 });
-
+$(document).on("click", "#administrador", function(){
+  ocultarform();
+});
 
 $(document).on("click","#config", function(){
   controlpagina();

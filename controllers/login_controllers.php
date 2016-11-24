@@ -7,6 +7,7 @@
 include_once('views/vistalogin.php');
 include_once('controllers/error_controllers.php');
 include_once('models/loginModel.php');
+include_once('views/vistalogin.php');
 include_once('controllers/controllers.php');
 
 class loginController  extends controlsesion {
@@ -54,7 +55,7 @@ function checklogin(){
                   $_SESSION["user"] = $usuarioRegistrado["nombre"];
                   $_SESSION["email"] = $usuarioRegistrado["user"];
                   $_SESSION["privilegio"] = $usuarioRegistrado["t_user"];
-                  if ($_SESSION["privilegio"]=="administrador") {
+                  if (($_SESSION["privilegio"]=="administrador")||($_SESSION["privilegio"]=="dueño")) {
                          $permiso=TRUE;
                            }
                   else{
